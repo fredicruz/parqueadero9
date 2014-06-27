@@ -1,0 +1,23 @@
+public  long pago (java.util.Date entrada, java.util.Date salida)
+            
+    {
+        long pago;
+        //los milisegundos
+        long diferenciaMils = salida.getTime() - entrada.getTime();
+        //obtenemos los segundos
+        long segundos = diferenciaMils / 1000;
+        //obtenemos las horas
+        long horas = segundos / 3600;
+        //restamos las horas para continuar con minutos
+        segundos -= horas * 3600;
+        //igual que el paso anterior
+        long minutos = segundos / 60;
+        segundos -= minutos * 60;
+
+        System.out.println(horas+ "  "+ minutos+" " + segundos);
+
+        pago = (horas * 1000) + (minutos * 300) + (segundos * 10);
+        return pago;
+
+    
+    }
